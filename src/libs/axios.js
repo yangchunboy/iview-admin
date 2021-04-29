@@ -1,5 +1,5 @@
 import axios from 'axios'
-// import { Spin } from 'iview'
+// import { Spin } from 'view-design'
 
 class HttpRequest {
   constructor (baseUrl = baseURL) {

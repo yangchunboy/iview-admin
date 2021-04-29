@@ -4,7 +4,7 @@ import Vue from 'vue'
 import App from './App'
 import router from './router'
 import store from './store'
-import iView from 'iview'
+import viewUi from 'view-design'
 
 import config from '@/config'
 import importDirective from '@/directive'
@@ -13,7 +13,7 @@ import installPlugin from '@/plugin'
 import './index.less'
 import '@/assets/icons/iconfont.css'
 
-Vue.use(iView)
+Vue.use(viewUi)
 
 /**
  * @description 注册admin内置插件
