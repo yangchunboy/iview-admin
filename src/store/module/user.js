@@ -1,8 +1,5 @@
-import {
-  login,
-  logout,
-  getUserInfo
-} from '@/api/user'
+
+import api from '@/api'
 import { setToken, getToken } from '@/libs/util'
 
 export default {
@@ -47,7 +44,7 @@ export default {
     handleLogin ({ commit }, { userName, password }) {
       userName = userName.trim()
       return new Promise((resolve, reject) => {
-        login({
+        api.user.login({
           userName,
           password
         }).then(res => {
@@ -62,7 +59,7 @@ export default {
     // 退出登录
     handleLogOut ({ state, commit }) {
       return new Promise((resolve, reject) => {
-        logout(state.token).then(() => {
+        api.user.logout(state.token).then(() => {
           commit('setToken', '')
           commit('setAccess', [])
           resolve()
@@ -79,7 +76,7 @@ export default {
     getUserInfo ({ state, commit }) {
       return new Promise((resolve, reject) => {
         try {
-          getUserInfo(state.token).then(res => {
+          api.user.getUserInfo(state.token).then(res => {
             const data = res.data
             commit('setAvatar', data.avatar)
             commit('setUserName', data.name)
